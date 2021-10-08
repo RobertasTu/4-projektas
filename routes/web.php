@@ -18,25 +18,29 @@ Route::get('/', function () {
 });
 
 Route::prefix('clients')->group(function () {
-    Route::get('','ClientController@index')->name('client.index'); //get arba post
-    Route::get('create', 'ClientController@create')->name('client.create');
-    Route::post('store', 'ClientController@store')->name('client.store');
+    Route::get('','ClientController@index')->name('client.index')->middleware('auth'); //get arba post
+    Route::get('create', 'ClientController@create')->name('client.create')->middleware('auth');
+    Route::post('store', 'ClientController@store')->name('client.store')->middleware('auth');
 
-    Route::get('edit/{client}', 'ClientController@edit')->name('client.edit');
-    Route::post('update/{client}', 'ClientController@update')->name('client.update');
-    Route::post('delete/{client}', 'ClientController@destroy' )->name('client.destroy');
+    Route::get('edit/{client}', 'ClientController@edit')->name('client.edit')->middleware('auth');
+    Route::post('update/{client}', 'ClientController@update')->name('client.update')->middleware('auth');
+    Route::post('delete/{client}', 'ClientController@destroy' )->name('client.destroy')->middleware('auth');
 
-    Route::get('show/{client}', 'ClientController@show')->name('client.show');
+    Route::get('show/{client}', 'ClientController@show')->name('client.show')->middleware('auth');
 });
 
 Route::prefix('companies')->group(function () {
-    Route::get('','CompanyController@index')->name('company.index'); //get arba post
-    Route::get('create', 'CompanyController@create')->name('company.create');
-    Route::post('store', 'CompanyController@store')->name('company.store');
+    Route::get('','CompanyController@index')->name('company.index')->middleware('auth'); //get arba post
+    Route::get('create', 'CompanyController@create')->name('company.create')->middleware('auth');
+    Route::post('store', 'CompanyController@store')->name('company.store')->middleware('auth');
 
-    Route::get('edit/{company}', 'CompanyController@edit')->name('company.edit');
-    Route::post('update/{company}', 'CompanyController@update')->name('company.update');
-    Route::post('delete/{company}', 'CompanyController@destroy' )->name('company.destroy');
+    Route::get('edit/{company}', 'CompanyController@edit')->name('company.edit')->middleware('auth');
+    Route::post('update/{company}', 'CompanyController@update')->name('company.update')->middleware('auth');
+    Route::post('delete/{company}', 'CompanyController@destroy' )->name('company.destroy')->middleware('auth');
 
-    Route::get('show/{company}', 'CompanyController@show')->name('company.show');
+    Route::get('show/{company}', 'CompanyController@show')->name('company.show')->middleware('auth');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -8,8 +8,8 @@
     <th>Name</th>
     <th>Surname</th>
     <th>Username</th>
-    <th>Company_id</th>
-    <th>Image</th>
+    <th>Company ID</th>
+    <th>Image Url</th>
 </tr>
 
 

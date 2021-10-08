@@ -44,6 +44,7 @@ class ClientController extends Controller
         $client->company_id = $request->client_company_id;
         $client->image_url = $request->client_image_url;
 
+        $client->save();
 
         return redirect()->route('client.index');
     }

@@ -42,7 +42,7 @@ class CompanyController extends Controller
         $company->type = $request->company_type;
         $company->description = $request->company_description;
 
-
+        $company->save();
         return redirect()->route('company.index');
     }
 

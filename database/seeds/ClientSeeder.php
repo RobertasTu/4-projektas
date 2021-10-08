@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB; // tik naudojant rankini seedinima
 use App\Client;
 
 class ClientSeeder extends Seeder
